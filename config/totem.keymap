@@ -18,7 +18,7 @@
 //  Row 2: 20 21 22 23 24 25  26 27 28 29 30 31
 //  Thumb:          32 33 34  35 36 37
 //
-//  v1 대비 변경사항:
+//  v1 대비 변경사항: 
 //  ✅ global-quick-tap → require-prior-idle-ms 교체
 //  ✅ 왼손 엄지 = Fn 레이어 / 오른손 엄지 = Nav 레이어 (Cornix 방향 복원)
 //  ✅ Alt+Tab 콤보 추가 (J+K 동시)
