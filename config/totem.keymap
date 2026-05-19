@@ -53,7 +53,7 @@
         compatible = "zmk,keymap";
 
         Base {
-            display-name = "Base";
+            display-name = "BASE";
             bindings = <
            &kp Q       &kp W       &kp E          &kp R         &kp T        &kp Y    &kp U        &kp I        &kp O       &kp P
            &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G        &kp H    &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMICOLON
@@ -63,7 +63,7 @@
         };
 
         Nav {
-            display-name = "Nav";
+            display-name = "NAV";
             bindings = <
               &kp TILDE       &kp LS(TAB)  &trans        &kp TAB    &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
               &kp LEFT_SHIFT  &kp LEFT     &kp UP_ARROW  &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans
@@ -73,7 +73,7 @@
         };
 
         Sym {
-            display-name = "Sym";
+            display-name = "SYM";
             bindings = <
                 &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
                 &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
