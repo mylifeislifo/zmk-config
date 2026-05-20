@@ -2,15 +2,15 @@ manifest:
   remotes:
     - name: zmkfirmware
       url-base: https://github.com/zmkfirmware
-    - name: mylifeislifo
-      url-base: https://github.com/mylifeislifo
+    - name: carrefinho
+      url-base: https://github.com/carrefinho
   projects:
     - name: zmk
       remote: zmkfirmware
-      revision: v0.3
+      revision: main
       import: app/west.yml
     - name: prospector-zmk-module
-      remote: mylifeislifo
-      revision: main
+      remote: carrefinho
+      revision: feat/new-status-screens
   self:
     path: config
