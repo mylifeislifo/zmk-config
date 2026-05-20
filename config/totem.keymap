@@ -1,94 +1,142 @@
-//
-//                                                        ▀▀▀▀▀     ▀▀▀▀▀          ▀▀█▀▀
-//                                                        ▄▀▀▀▄  ▄  ▄▀▀▀▄  ▄  ▄▀▀▀▄  █  ▄▀▀▀▄
-//                                                        █   █  █  █   █  █  █   █  █  █   █
-//                                                         ▀▀▀   █   ▀▀▀   █   ▀▀▀   ▀   ▀▀▀
-//                                                               █      ▄▄▄█▄▄▄    █   █  
-//                                                               ▀      █  █  █     █▄█
-//                                                             ▀▀▀▀▀    █  █  █      ▀
-//                                                                      ▀  ▀  ▀
-//
-// ▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄▄
+/*
+ * TOTEM keymap  --  Cornix migration
+ *
+ * Layers : Base(0) / Num(1) / Fn(2) / Mac(3) / MacFn(4)
+ *
+ *  Thumbs   : Esc(hold Fn)  Space  Ctrl  |  Bksp  Enter  Tab(hold Num)
+ *  GUI      : J + K combo (sticky)
+ *  Shift    : both pinky keys (tap Shift / double-tap Caps or ')
+ *  Han/Eng  : hold left Shift + Space   (OS handles it, Win & Mac same)
+ *
+ *  Mac mode : toggle by pressing BOTH pinky keys together.
+ *             - thumb Ctrl  becomes Cmd
+ *             - Quit / Screenshot keys auto-switch to the macOS combo
+ *               (handled by the hidden MacFn layer, so normal typing
+ *                is never affected)
+ *
+ *  Quit key : Fn layer -> Win = Alt+F4 / Mac = Cmd+Q   (same key)
+ *  Shot key : Fn layer -> Win = Win+Shift+S / Mac = Cmd+Shift+4
+ */
 
 #include <behaviors.dtsi>
 #include <dt-bindings/zmk/keys.h>
 
-#define Base        0
-#define Nav         1
-#define Sym         2
-#define Fun         3
-#define Game        4
-#define Gameplus    5
+#define BASE  0
+#define NUM   1
+#define FN    2
+#define MAC   3
+#define MACFN 4
 
-&mt {
-    quick-tap-ms = <100>;
-    global-quick-tap;
-    flavor = "tap-preferred";
-    tapping-term-ms = <170>;
-};
 
 &lt {
     tapping-term-ms = <240>;
     flavor = "balanced";
     quick-tap-ms = <150>;
+    require-prior-idle-ms = <150>;
 };
 
+
 / {
-    behaviors {
-        hm: homerow_mods {
-            compatible = "zmk,behavior-hold-tap";
-            label = "HOMEROW_MODS";
-            #binding-cells = <2>;
-            flavor = "tap-preferred";
-            tapping-term-ms = <200>;
-            quick-tap-ms = <125>;
-            global-quick-tap;
-            bindings = <&kp>, <&kp>;
+    macros {
+        m_selline: m_selline {          /* select current line */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp HOME &kp LS(END)>;
         };
     };
 
-    combos { compatible = "zmk,combos"; };
+    behaviors {
+        td_shft: td_shft {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp LSHFT>, <&kp CAPS>;
+        };
+
+        td_rshft: td_rshft {
+            compatible = "zmk,behavior-tap-dance";
+            #binding-cells = <0>;
+            tapping-term-ms = <200>;
+            bindings = <&kp RSHFT>, <&kp SQT>;
+        };
+    };
+
+    combos {
+        compatible = "zmk,combos";
+
+        combo_gui {
+            timeout-ms = <40>;
+            require-prior-idle-ms = <100>;
+            key-positions = <16 17>;     /* J + K  -> sticky GUI */
+            bindings = <&sk LGUI>;
+        };
+
+        combo_macmode {
+            timeout-ms = <50>;
+            require-prior-idle-ms = <200>;
+            key-positions = <20 31>;     /* both pinky keys -> toggle Mac */
+            bindings = <&tog MAC>;
+        };
+    };
+
+    conditional_layers {
+        compatible = "zmk,conditional-layers";
+        mac_fn {
+            if-layers = <FN MAC>;
+            then-layer = <MACFN>;
+        };
+    };
 
     keymap {
         compatible = "zmk,keymap";
 
         Base {
-            display-name = "BASE";
+            display-name = "Base";
             bindings = <
-           &kp Q       &kp W       &kp E          &kp R         &kp T        &kp Y    &kp U        &kp I        &kp O       &kp P
-           &hm LGUI A  &hm LALT S  &hm LCTRL D    &hm LSHIFT F  &kp G        &kp H    &hm RSHFT J  &hm RCTRL K  &hm RALT L  &hm RGUI SEMICOLON
-&lt 3 TAB  &kp Z       &kp X       &kp C          &kp V         &kp B        &kp N    &kp M        &kp COMMA    &kp DOT     &kp SLASH           &kp APOSTROPHE
-                                   &mt LCTRL DEL  &lt 1 ESC     &kp SPACE    &kp RET  &lt 2 BSPC   &kp MINUS
+                &kp Q       &kp W   &kp E   &kp R   &kp T          &kp Y      &kp U      &kp I       &kp O     &kp P
+                &kp A       &kp S   &kp D   &kp F   &kp G          &kp H      &kp J      &kp K       &kp L     &kp SEMI
+&td_shft        &kp Z       &kp X   &kp C   &kp V   &kp B          &kp N      &kp M      &kp COMMA   &kp DOT   &kp FSLH   &td_rshft
+                                    &lt FN ESC  &kp SPACE  &kp LCTRL    &kp BSPC   &kp RET    &lt NUM TAB
             >;
         };
 
-        Nav {
-            display-name = "NAV";
+        Num {
+            display-name = "Num";
             bindings = <
-              &kp TILDE       &kp LS(TAB)  &trans        &kp TAB    &kp LBRC    &kp RBRC  &kp NUMBER_7  &kp NUMBER_8  &kp NUMBER_9  &kp NUMBER_0
-              &kp LEFT_SHIFT  &kp LEFT     &kp UP_ARROW  &kp RIGHT  &kp LBKT    &kp RBKT  &kp NUMBER_4  &kp NUMBER_5  &kp NUMBER_6  &trans
-&kp LEFT_ALT  &trans          &kp MINUS    &kp DOWN      &kp PLUS   &kp LPAR    &kp RPAR  &kp NUMBER_1  &kp NUMBER_2  &kp NUMBER_3  &trans        &trans
-                                           &trans        &trans     &trans      &trans    &trans        &kp DOT
+                &kp N1      &kp N2  &kp N3  &kp N4  &kp N5         &kp HOME   &kp PG_UP  &kp PG_DN   &kp END   &trans
+                &kp N6      &kp N7  &kp N8  &kp N9  &kp N0         &kp LEFT   &kp DOWN   &kp UP      &kp RIGHT &trans
+&trans          &trans      &trans  &trans  &trans  &kp DOT        &kp PLUS   &kp MINUS  &kp ASTRK   &kp FSLH  &kp EQUAL  &trans
+                                    &trans      &trans     &trans       &trans     &trans     &trans
             >;
         };
 
-        Sym {
-            display-name = "SYM";
+        Fn {
+            display-name = "Fn";
             bindings = <
-                &kp EXCL  &kp AT  &kp HASH  &kp DOLLAR  &kp PERCENT    &kp CARET  &kp AMPERSAND  &kp KP_ASTERISK  &kp SQT  &kp DQT
-                &trans    &trans  &trans    &trans      &trans         &trans     &trans         &trans           &trans   &trans
-&studio_unlock  &trans    &trans  &trans    &trans      &trans         &kp UNDER  &kp EQUAL      &trans           &trans   &kp BACKSLASH  &kp HOME
-                                  &trans    &trans      &trans         &trans     &trans         &trans
+                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans       &trans      &trans         &trans       &trans
+                &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)   &m_selline  &kp LG(LS(S))  &bootloader  &trans
+&trans          &kp F11     &kp F12 &trans  &trans  &trans         &trans       &trans      &trans         &trans       &trans     &trans
+                                    &trans      &trans     &trans       &trans     &trans     &trans
             >;
         };
 
-        Fun {
-            display-name = "FUNC";
+        Mac {
+            display-name = "Mac";
             bindings = <
-        &bootloader  &trans  &trans  &trans  &to 4     &trans  &trans  &trans  &kp END  &kp F1
-        &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F10
-&trans  &trans       &trans  &trans  &trans  &trans    &trans  &trans  &trans  &trans   &kp F20  &kp F7
-                             &trans  &trans  &trans    &trans  &trans  &trans
+                &trans      &trans  &trans  &trans  &trans         &trans     &trans     &trans      &trans    &trans
+                &trans      &trans  &trans  &trans  &trans         &trans     &trans     &trans      &trans    &trans
+&trans          &trans      &trans  &trans  &trans  &trans         &trans     &trans     &trans      &trans    &trans     &trans
+                                    &trans      &trans     &kp LGUI     &trans     &trans     &trans
+            >;
+        };
+
+        MacFn {
+            display-name = "MacFn";
+            bindings = <
+                &trans      &trans  &trans  &trans  &trans         &trans       &trans     &trans            &trans    &trans
+                &trans      &trans  &trans  &trans  &trans         &kp LG(Q)    &trans     &kp LG(LS(N4))    &trans    &trans
+&trans          &trans      &trans  &trans  &trans  &trans         &trans       &trans     &trans            &trans    &trans     &trans
+                                    &trans      &trans     &trans       &trans     &trans     &trans
             >;
         };
     };
