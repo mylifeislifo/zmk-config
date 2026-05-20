@@ -68,6 +68,7 @@
             timeout-ms = <40>;
             require-prior-idle-ms = <100>;
             key-positions = <16 17>;     /* J + K  -> sticky GUI */
+            layers = <BASE>;
             bindings = <&sk LGUI>;
         };
 
