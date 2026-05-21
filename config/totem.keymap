@@ -1,21 +1,16 @@
 /*
- * TOTEM keymap  --  Cornix migration
+ * TOTEM keymap  --  Cornix migration v2
  *
  * Layers : Base(0) / Num(1) / Fn(2) / Mac(3) / MacFn(4)
  *
  *  Thumbs   : Esc(hold Fn)  Space  Ctrl  |  Bksp  Enter  Tab(hold Num)
- *  GUI      : J + K combo (sticky)
+ *  GUI      : J + K combo (sticky)   -- becomes CTRL in Mac mode
+ *  ALT      : D + F combo (sticky)   -- works in both Win & Mac (Option)
  *  Shift    : both pinky keys (tap Shift / double-tap Caps or ')
- *  Han/Eng  : hold left Shift + Space   (OS handles it, Win & Mac same)
+ *  Han/Eng  : hold left Shift + Space
  *
- *  Mac mode : toggle by pressing BOTH pinky keys together.
- *             - thumb Ctrl  becomes Cmd
- *             - Quit / Screenshot keys auto-switch to the macOS combo
- *               (handled by the hidden MacFn layer, so normal typing
- *                is never affected)
- *
- *  Quit key : Fn layer -> Win = Alt+F4 / Mac = Cmd+Q   (same key)
- *  Shot key : Fn layer -> Win = Win+Shift+S / Mac = Cmd+Shift+4
+ *  Mac mode : toggle by pressing BOTH pinky keys together
+ *  Win Snap : Fn layer N M , .  ->  Win+ARROW  /  Mac: Cmd+Opt+ARROW
  */
 
 #include <behaviors.dtsi>
@@ -64,18 +59,38 @@
     combos {
         compatible = "zmk,combos";
 
+        /* J+K  -- Windows GUI (Win key) on Base */
         combo_gui {
             timeout-ms = <40>;
             require-prior-idle-ms = <100>;
-            key-positions = <16 17>;     /* J + K  -> sticky GUI */
+            key-positions = <16 17>;
             layers = <BASE>;
             bindings = <&sk LGUI>;
         };
 
+        /* J+K  -- Becomes Ctrl when Mac mode is active */
+        combo_ctrl_mac {
+            timeout-ms = <40>;
+            require-prior-idle-ms = <100>;
+            key-positions = <16 17>;
+            layers = <MAC>;
+            bindings = <&sk LCTRL>;
+        };
+
+        /* D+F  -- Alt / Option (same on both OS) */
+        combo_alt {
+            timeout-ms = <40>;
+            require-prior-idle-ms = <100>;
+            key-positions = <12 13>;
+            layers = <BASE MAC>;
+            bindings = <&sk LALT>;
+        };
+
+        /* both pinky keys  -- Mac mode toggle */
         combo_macmode {
             timeout-ms = <50>;
             require-prior-idle-ms = <200>;
-            key-positions = <20 31>;     /* both pinky keys -> toggle Mac */
+            key-positions = <20 31>;
             bindings = <&tog MAC>;
         };
     };
@@ -114,9 +129,9 @@
         Fn {
             display-name = "WFNC";
             bindings = <
-                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans       &trans      &trans         &trans       &trans
-                &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)   &m_selline  &kp LG(LS(S))  &bootloader  &trans
-&trans          &kp F11     &kp F12 &trans  &trans  &trans         &trans       &trans      &trans         &trans       &trans     &trans
+                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans          &trans            &trans          &trans            &trans
+                &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)      &m_selline        &kp LG(LS(S))   &bootloader       &trans
+&trans          &kp F11     &kp F12 &trans  &trans  &trans         &kp LG(LEFT)    &kp LG(DOWN)      &kp LG(UP)      &kp LG(RIGHT)     &trans     &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
             >;
         };
@@ -134,9 +149,9 @@
         MacFn {
             display-name = "MFNC";
             bindings = <
-                &trans      &trans  &trans  &trans  &trans         &trans       &trans     &trans            &trans    &trans
-                &trans      &trans  &trans  &trans  &trans         &kp LG(Q)    &trans     &kp LG(LS(N4))    &trans    &trans
-&trans          &trans      &trans  &trans  &trans  &trans         &trans       &trans     &trans            &trans    &trans     &trans
+                &trans      &trans  &trans  &trans  &trans         &trans              &trans       &trans                  &trans    &trans
+                &trans      &trans  &trans  &trans  &trans         &kp LG(Q)           &trans       &kp LG(LS(N4))          &trans    &trans
+&trans          &trans      &trans  &trans  &trans  &trans         &kp LG(LA(LEFT))    &kp LG(LA(DOWN)) &kp LG(LA(UP))      &kp LG(LA(RIGHT)) &trans &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
             >;
         };
