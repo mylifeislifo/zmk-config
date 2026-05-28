@@ -30,7 +30,7 @@
       "KC_TRNS",  "KC_F11",  "KC_F12",  "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
       "KC_TRNS",       "KC_TRNS",          "KC_TRNS",          "KC_TRNS",           "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "LALT(KC_F4)",       "QK_MACRO_0",       "KC_TRNS",           "QK_BOOT",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",       "LALT(KC_F4)",       "KC_TRNS",          "KC_TRNS",  "RESET",    "KC_TRNS", "KC_TRNS",
       "LGUI(KC_LEFT)", "LGUI(KC_DOWN)",     "LGUI(KC_UP)",      "LGUI(KC_RGHT)",     "KC_TRNS",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
@@ -63,12 +63,5 @@
     {"key1": "KC_J", "key2": "KC_K", "output": "KC_LGUI", "term": 40},
     {"key1": "KC_D", "key2": "KC_F", "output": "KC_LALT", "term": 40}
   ],
-  "macro": [
-    [
-      {"action": "tap",  "keycodes": ["KC_HOME"]},
-      {"action": "down", "keycodes": ["KC_LSFT"]},
-      {"action": "tap",  "keycodes": ["KC_END"]},
-      {"action": "up",   "keycodes": ["KC_LSFT"]}
-    ]
-  ]
+  "macro": []
 }
