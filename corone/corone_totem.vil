@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n\nCombos (Vial GUI > Combos):\n  J+K -> KC_LGUI  (Win/Cmd key)\n  D+F -> KC_LALT  (Alt/Option key)\n\nMacro 0 (Vial GUI > Macros): Home + Shift+End (select line)",
+  "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n\nCombos (Vial GUI > Combos):\n  J+K -> KC_LGUI  (Win/Cmd key)\n  D+F -> KC_LALT  (Alt/Option key)\n\nFn layer - set these manually in Vial GUI:\n  Alt+F4 position (row2 col2 right side)\n  Win+Left/Down/Up/Right (bottom row right side)\n\nMacFn layer - set manually:\n  Cmd+Q position (row2 col2 right side)",
   "documentation": "TOTEM keymap ported to Corone 46.",
   "keyboard": "corone",
   "layout": [
@@ -21,7 +21,7 @@
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_HOME", "KC_PGUP", "KC_PGDN", "KC_END",  "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_LEFT", "KC_DOWN", "KC_UP",   "KC_RGHT", "KC_TRNS", "KC_TRNS",
-      "KC_PLUS",  "KC_MINS", "KC_ASTR", "KC_SLSH", "KC_EQL",  "KC_TRNS",
+      "KC_PPLS",  "KC_MINS", "KC_PAST", "KC_SLSH", "KC_EQL",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
     [
@@ -29,9 +29,9 @@
       "KC_TRNS",  "KC_F6",   "KC_F7",   "KC_F8",   "KC_F9",   "KC_F10",  "KC_TRNS",
       "KC_TRNS",  "KC_F11",  "KC_F12",  "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "KC_TRNS",          "KC_TRNS",          "KC_TRNS",           "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "LALT(KC_F4)",       "KC_TRNS",          "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "LGUI(KC_LEFT)", "LGUI(KC_DOWN)",     "LGUI(KC_UP)",      "LGUI(KC_RGHT)",     "KC_TRNS",  "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
     [
@@ -49,9 +49,9 @@
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",            "KC_TRNS",            "KC_TRNS",           "KC_TRNS",            "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",  "LGUI(KC_Q)", "KC_TRNS",  "KC_TRNS",  "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",  "KC_TRNS",   "KC_TRNS",  "KC_TRNS",  "KC_TRNS",  "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ]
   ],
