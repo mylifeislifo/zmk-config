@@ -1,7 +1,7 @@
 {
   "version": 1,
   "notes": "TOTEM-style keymap for Corone 46\n\nKey positions (L=left R=right):\n  L-R0: outer(0) Q(1) W(2) E(3) R(4) T(5) inner(6)\n  L-R1: outer(7) A(8) S(9) D(10) F(11) G(12) inner(13)\n  L-R2: outer(14) Z(15) X(16) C(17) V(18) B(19)\n  L-Thumb: t0(20) t1(21) t2(22)\n  R-R0: inner(23) Y(24) U(25) I(26) O(27) P(28) outer(29)\n  R-R1: inner(30) H(31) J(32) K(33) L(34) ;(35) outer(36)\n  R-R2: N(37) M(38) ,(39) .(40) /(41) outer(42)\n  R-Thumb: t3(43) t4(44) t5(45)\n\nLayers:\n  0: Base (Windows)\n  1: Num  - numbers / arrows / symbols\n  2: Fn   - F-keys / Windows snap\n  3: Mac  - Ctrl->Cmd, ESC->MacFn\n  4: MacFn - Mac snap shortcuts\n\nTap Dance (set in Vial GUI > Tap Dance):\n  TD(0): tap=LShift  double=CapsLock\n  TD(1): tap=RShift  double=Quote\n\nCombos (set in Vial GUI > Combos):\n  J + K -> OSM(MOD_LGUI)\n  D + F -> OSM(MOD_LALT)\n\nMac toggle: top-left outer key (pos 0) = TG(3)\n\nMacro 0 (Vial GUI > Macros): Home + Shift+End",
-  "documentation": "Corone 46 TOTEM-style layout. Key ordering assumed from screenshot.",
+  "documentation": "Corone 46 TOTEM-style layout.",
   "keyboard": "corone",
   "keymap": [
     [
@@ -29,9 +29,9 @@
       "KC_TRNS",  "KC_F6",   "KC_F7",   "KC_F8",   "KC_F9",   "KC_F10",  "KC_TRNS",
       "KC_TRNS",  "KC_F11",  "KC_F12",  "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "KC_TRNS",           "KC_TRNS",           "KC_TRNS",           "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "LALT(KC_F4)",        "MACRO(0)",          "LGUI(LSFT(KC_S))",  "QK_BOOT",  "KC_TRNS", "KC_TRNS",
-      "LGUI(KC_LEFT)", "LGUI(KC_DOWN)",      "LGUI(KC_UP)",       "LGUI(KC_RGHT)",     "KC_TRNS",  "KC_TRNS",
+      "KC_TRNS",       "KC_TRNS",       "KC_TRNS",       "KC_TRNS",       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",       "LALT(KC_F4)",   "QK_MACRO_0",    "LSG(KC_S)",     "QK_BOOT",  "KC_TRNS", "KC_TRNS",
+      "LGUI(KC_LEFT)", "LGUI(KC_DOWN)", "LGUI(KC_UP)",   "LGUI(KC_RGHT)", "KC_TRNS",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
     [
@@ -45,13 +45,13 @@
       "KC_BSPC",  "KC_ENT",  "LT(1,KC_TAB)"
     ],
     [
-      "KC_TRNS",  "KC_TRNS",            "KC_TRNS",           "KC_TRNS",            "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",  "KC_TRNS",            "KC_TRNS",           "KC_TRNS",            "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",  "KC_TRNS",            "KC_TRNS",           "KC_TRNS",            "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",  "KC_TRNS",            "KC_TRNS",
-      "KC_TRNS",              "KC_TRNS",              "KC_TRNS",              "KC_TRNS",              "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",              "LGUI(KC_Q)",            "KC_TRNS",              "LGUI(LSFT(KC_4))",     "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "LGUI(LALT(KC_LEFT))",  "LGUI(LALT(KC_DOWN))",  "LGUI(LALT(KC_UP))",    "LGUI(LALT(KC_RGHT))",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",      "LGUI(KC_Q)",   "KC_TRNS",      "LSG(KC_4)",    "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "LAG(KC_LEFT)", "LAG(KC_DOWN)", "LAG(KC_UP)",   "LAG(KC_RGHT)", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ]
   ],
@@ -66,7 +66,9 @@
   "macro": [
     [
       {"action": "tap", "keycodes": ["KC_HOME"]},
-      {"action": "tap", "keycodes": ["LSFT(KC_END)"]}
+      {"action": "down", "keycodes": ["KC_LSFT"]},
+      {"action": "tap", "keycodes": ["KC_END"]},
+      {"action": "up", "keycodes": ["KC_LSFT"]}
     ]
   ]
 }
