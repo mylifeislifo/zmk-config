@@ -3,7 +3,7 @@
   "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n\nCombos (Vial GUI > Combos):\n  J+K -> KC_LGUI  (Win/Cmd key)\n  D+F -> KC_LALT  (Alt/Option key)\n\nMacro 0 (Vial GUI > Macros): Home + Shift+End (select line)",
   "documentation": "TOTEM keymap ported to Corone 46.",
   "keyboard": "corone",
-  "keymap": [
+  "layout": [
     [
       "KC_TRNS",      "KC_Q",    "KC_W",    "KC_E",    "KC_R",    "KC_T",    "KC_TRNS",
       "KC_TRNS",      "KC_A",    "KC_S",    "KC_D",    "KC_F",    "KC_G",    "KC_TRNS",
