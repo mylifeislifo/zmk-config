@@ -1,16 +1,16 @@
 {
   "version": 1,
-  "notes": "TOTEM-style keymap for Corone 46\n\nKey positions (L=left R=right):\n  L-R0: outer(0) Q(1) W(2) E(3) R(4) T(5) inner(6)\n  L-R1: outer(7) A(8) S(9) D(10) F(11) G(12) inner(13)\n  L-R2: outer(14) Z(15) X(16) C(17) V(18) B(19)\n  L-Thumb: t0(20) t1(21) t2(22)\n  R-R0: inner(23) Y(24) U(25) I(26) O(27) P(28) outer(29)\n  R-R1: inner(30) H(31) J(32) K(33) L(34) ;(35) outer(36)\n  R-R2: N(37) M(38) ,(39) .(40) /(41) outer(42)\n  R-Thumb: t3(43) t4(44) t5(45)\n\nLayers:\n  0: Base (Windows)\n  1: Num  - numbers / arrows / symbols\n  2: Fn   - F-keys / Windows snap\n  3: Mac  - Ctrl->Cmd, ESC->MacFn\n  4: MacFn - Mac snap shortcuts\n\nTap Dance (set in Vial GUI > Tap Dance):\n  TD(0): tap=LShift  double=CapsLock\n  TD(1): tap=RShift  double=Quote\n\nCombos (set in Vial GUI > Combos):\n  J + K -> OSM(MOD_LGUI)\n  D + F -> OSM(MOD_LALT)\n\nMac toggle: top-left outer key (pos 0) = TG(3)\n\nMacro 0 (Vial GUI > Macros): Home + Shift+End",
-  "documentation": "Corone 46 TOTEM-style layout.",
+  "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nKey positions:\n  L-R0: outer(0)[TRNS] Q(1) W(2) E(3) R(4) T(5) inner(6)[TRNS]\n  L-R1: outer(7)[TRNS] A(8) S(9) D(10) F(11) G(12) inner(13)[TRNS]\n  L-R2: TD0(14) Z(15) X(16) C(17) V(18) B(19)\n  L-Thumb: ESC/Fn(20) SPC(21) CTRL(22)\n  R-R0: inner(23)[TRNS] Y(24) U(25) I(26) O(27) P(28) outer(29)[TRNS]\n  R-R1: inner(30)[TRNS] H(31) J(32) K(33) L(34) ;(35) outer(36)[TRNS]\n  R-R2: N(37) M(38) ,(39) .(40) /(41) TD1(42)\n  R-Thumb: BSPC(43) ENT(44) TAB/Num(45)\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n\nCombos (Vial GUI > Combos):\n  J+K          -> OSM(MOD_LGUI)  one-shot Win/Cmd\n  D+F          -> OSM(MOD_LALT)  one-shot Alt/Option\n  TD(0)+TD(1)  -> TG(3)          Mac mode toggle (both pinkies)\n\nMacro 0 (Vial GUI > Macros): Home + Shift+End (select line)",
+  "documentation": "TOTEM keymap ported to Corone 46. Extra outer/inner column keys are transparent.",
   "keyboard": "corone",
   "keymap": [
     [
-      "TG(3)",        "KC_Q",    "KC_W",    "KC_E",    "KC_R",    "KC_T",    "LCTL(KC_V)",
-      "KC_TRNS",      "KC_A",    "KC_S",    "KC_D",    "KC_F",    "KC_G",    "LCTL(KC_C)",
-      "TD(0)",        "KC_Z",    "KC_X",    "KC_C",    "KC_V",    "KC_B",
+      "KC_TRNS",      "KC_Q",    "KC_W",    "KC_E",    "KC_R",    "KC_T",    "KC_TRNS",
+      "KC_TRNS",      "KC_A",    "KC_S",    "KC_D",    "KC_F",    "KC_G",    "KC_TRNS",
+      "TD(0)",         "KC_Z",    "KC_X",    "KC_C",    "KC_V",    "KC_B",
       "LT(2,KC_ESC)", "KC_SPC",  "KC_LCTL",
-      "LCTL(KC_Z)",   "KC_Y",    "KC_U",    "KC_I",    "KC_O",    "KC_P",    "KC_TRNS",
-      "LCTL(KC_X)",   "KC_H",    "KC_J",    "KC_K",    "KC_L",    "KC_SCLN", "KC_TRNS",
+      "KC_TRNS",      "KC_Y",    "KC_U",    "KC_I",    "KC_O",    "KC_P",    "KC_TRNS",
+      "KC_TRNS",      "KC_H",    "KC_J",    "KC_K",    "KC_L",    "KC_SCLN", "KC_TRNS",
       "KC_N",         "KC_M",    "KC_COMM", "KC_DOT",  "KC_SLSH", "TD(1)",
       "KC_BSPC",      "KC_ENT",  "LT(1,KC_TAB)"
     ],
@@ -35,40 +35,41 @@
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
     [
-      "TG(3)",         "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",       "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",       "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",       "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "LT(4,KC_ESC)",  "KC_SPC",  "KC_LGUI",
+      "LT(4,KC_ESC)",  "KC_TRNS", "KC_LGUI",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "KC_BSPC",  "KC_ENT",  "LT(1,KC_TAB)"
+      "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
     [
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",      "LGUI(KC_Q)",   "KC_TRNS",      "LSG(KC_4)",    "KC_TRNS", "KC_TRNS", "KC_TRNS",
-      "LAG(KC_LEFT)", "LAG(KC_DOWN)", "LAG(KC_UP)",   "LAG(KC_RGHT)", "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",      "KC_TRNS",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",      "LGUI(KC_Q)",   "KC_TRNS",      "LSG(KC_4)",    "KC_TRNS",  "KC_TRNS", "KC_TRNS",
+      "LAG(KC_LEFT)", "LAG(KC_DOWN)", "LAG(KC_UP)",   "LAG(KC_RGHT)", "KC_TRNS",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ]
   ],
   "tap_dance": [
-    {"tap": "KC_LSFT", "hold": "KC_NO", "double_tap": "KC_CAPS",  "tap_hold": "KC_NO", "tapping_term": 200},
-    {"tap": "KC_RSFT", "hold": "KC_NO", "double_tap": "KC_QUOT",  "tap_hold": "KC_NO", "tapping_term": 200}
+    {"tap": "KC_LSFT", "hold": "KC_NO", "double_tap": "KC_CAPS", "tap_hold": "KC_NO", "tapping_term": 200},
+    {"tap": "KC_RSFT", "hold": "KC_NO", "double_tap": "KC_QUOT", "tap_hold": "KC_NO", "tapping_term": 200}
   ],
   "combo": [
-    {"key1": "KC_J", "key2": "KC_K", "output": "OSM(MOD_LGUI)", "term": 40},
-    {"key1": "KC_D", "key2": "KC_F", "output": "OSM(MOD_LALT)", "term": 40}
+    {"key1": "KC_J",  "key2": "KC_K",  "output": "OSM(MOD_LGUI)", "term": 40},
+    {"key1": "KC_D",  "key2": "KC_F",  "output": "OSM(MOD_LALT)", "term": 40},
+    {"key1": "TD(0)", "key2": "TD(1)", "output": "TG(3)",          "term": 50}
   ],
   "macro": [
     [
-      {"action": "tap", "keycodes": ["KC_HOME"]},
+      {"action": "tap",  "keycodes": ["KC_HOME"]},
       {"action": "down", "keycodes": ["KC_LSFT"]},
-      {"action": "tap", "keycodes": ["KC_END"]},
-      {"action": "up", "keycodes": ["KC_LSFT"]}
+      {"action": "tap",  "keycodes": ["KC_END"]},
+      {"action": "up",   "keycodes": ["KC_LSFT"]}
     ]
   ]
 }
