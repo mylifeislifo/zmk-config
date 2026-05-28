@@ -30,7 +30,7 @@
       "KC_TRNS",  "KC_F11",  "KC_F12",  "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
       "KC_TRNS",       "KC_TRNS",          "KC_TRNS",          "KC_TRNS",           "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",       "LALT(KC_F4)",       "QK_MACRO_0",       "LGUI(LSFT(KC_S))",  "QK_BOOT",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",       "LALT(KC_F4)",       "QK_MACRO_0",       "KC_TRNS",           "QK_BOOT",  "KC_TRNS", "KC_TRNS",
       "LGUI(KC_LEFT)", "LGUI(KC_DOWN)",     "LGUI(KC_UP)",      "LGUI(KC_RGHT)",     "KC_TRNS",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ],
@@ -50,8 +50,8 @@
       "KC_TRNS",  "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS", "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS",
       "KC_TRNS",            "KC_TRNS",            "KC_TRNS",           "KC_TRNS",            "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "KC_TRNS",            "LGUI(KC_Q)",          "KC_TRNS",           "LGUI(LSFT(KC_4))",   "KC_TRNS",  "KC_TRNS", "KC_TRNS",
-      "LGUI(LALT(KC_LEFT))", "LGUI(LALT(KC_DOWN))", "LGUI(LALT(KC_UP))", "LGUI(LALT(KC_RGHT))", "KC_TRNS",  "KC_TRNS",
+      "KC_TRNS",  "LGUI(KC_Q)", "KC_TRNS",  "KC_TRNS",  "KC_TRNS",  "KC_TRNS", "KC_TRNS",
+      "KC_TRNS",  "KC_TRNS",   "KC_TRNS",  "KC_TRNS",  "KC_TRNS",  "KC_TRNS",
       "KC_TRNS",  "KC_TRNS", "KC_TRNS"
     ]
   ],
