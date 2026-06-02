@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n\nCombos (Vial GUI > Combos):\n  J+K -> KC_LGUI  (Win/Cmd key)\n  D+F -> KC_LALT  (Alt/Option key)\n\nFn layer - set these manually in Vial GUI:\n  Alt+F4 position (row2 col2 right side)\n  Win+Left/Down/Up/Right (bottom row right side)\n\nMacFn layer - set manually:\n  Cmd+Q position (row2 col2 right side)",
+  "notes": "TOTEM keymap ported to Corone 46\n\nTotem 38-key layout mapped to Corone 46:\n  Extra keys (outer col R0/R1, inner col R0/R1) = KC_TRNS\n  Core 5-col grid + thumbs = identical to TOTEM\n\nLayers: 0=Base 1=Num 2=Fn 3=Mac 4=MacFn\n\nTap Dance (Vial GUI > Tap Dance):\n  TD(0): tap=LShift double=CapsLock\n  TD(1): tap=RShift double=Quote\n  TD(2): tap=Slash double=Backslash\n\nCombos (Vial GUI > Combos):\n  J+K -> KC_LGUI  (Win/Cmd key)\n  D+F -> KC_LALT  (Alt/Option key)\n\nFn layer - set these manually in Vial GUI:\n  Alt+F4 position (row2 col2 right side)\n  Win+Left/Down/Up/Right (bottom row right side)\n\nMacFn layer - set manually:\n  Cmd+Q position (row2 col2 right side)",
   "documentation": "TOTEM keymap ported to Corone 46.",
   "keyboard": "corone",
   "layout": [
@@ -11,7 +11,7 @@
       "LT(2,KC_ESC)", "KC_SPC",  "KC_LCTL",
       "KC_TRNS",      "KC_Y",    "KC_U",    "KC_I",    "KC_O",    "KC_P",    "KC_TRNS",
       "KC_TRNS",      "KC_H",    "KC_J",    "KC_K",    "KC_L",    "KC_SCLN", "KC_TRNS",
-      "KC_N",         "KC_M",    "KC_COMM", "KC_DOT",  "KC_SLSH", "TD(1)",
+      "KC_N",         "KC_M",    "KC_COMM", "KC_DOT",  "TD(2)",   "TD(1)",
       "KC_BSPC",      "KC_ENT",  "LT(1,KC_TAB)"
     ],
     [
@@ -57,7 +57,8 @@
   ],
   "tap_dance": [
     {"tap": "KC_LSFT", "hold": "KC_NO", "double_tap": "KC_CAPS", "tap_hold": "KC_NO", "tapping_term": 200},
-    {"tap": "KC_RSFT", "hold": "KC_NO", "double_tap": "KC_QUOT", "tap_hold": "KC_NO", "tapping_term": 200}
+    {"tap": "KC_RSFT", "hold": "KC_NO", "double_tap": "KC_QUOT", "tap_hold": "KC_NO", "tapping_term": 200},
+    {"tap": "KC_SLSH", "hold": "KC_NO", "double_tap": "KC_BSLS", "tap_hold": "KC_NO", "tapping_term": 200}
   ],
   "combo": [
     {"key1": "KC_J", "key2": "KC_K", "output": "KC_LGUI", "term": 40},
