@@ -11,7 +11,7 @@
  *  Han/Eng  : hold left Shift + Space
  *
  *  Mac mode : toggle by pressing BOTH pinky keys together
- *  Win Snap : Fn layer N M , .  ->  Win+ARROW  /  Mac: Cmd+Opt+ARROW
+ *  Fn extras: [ ] on , .  /  \ on /
  */
 
 #include <behaviors.dtsi>
@@ -141,7 +141,7 @@
             bindings = <
                 &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans          &trans            &trans          &trans            &trans
                 &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)      &m_selline        &kp LG(LS(S))   &bootloader       &trans
-&trans          &kp F11     &kp F12 &trans  &trans  &trans         &kp LG(LEFT)    &kp LG(DOWN)      &kp LG(UP)      &kp LG(RIGHT)     &kp BSLH   &trans
+&trans          &kp F11     &kp F12 &trans  &trans  &trans         &trans          &trans            &kp LBKT        &kp RBKT          &kp BSLH   &trans
                                     &trans      &trans     &trans       &kp DEL    &trans     &trans
             >;
         };
