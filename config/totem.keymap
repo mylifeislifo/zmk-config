@@ -88,6 +88,14 @@
             bindings = <&sk LALT>;
         };
 
+        /* LShift + Space  -- CapsLock (Mac 한영 toggle) */
+        combo_hanyeong {
+            timeout-ms = <50>;
+            key-positions = <20 33>;
+            layers = <MAC MACFN>;
+            bindings = <&kp CAPS>;
+        };
+
         /* both pinky keys  -- Mac mode toggle */
         combo_macmode {
             timeout-ms = <50>;
@@ -132,7 +140,7 @@
             display-name = "WFNC";
             bindings = <
                 &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans          &trans            &trans          &trans            &trans
-                &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)      &m_selline        &kp LG(LS(S))   &bootloader       &kp SQT
+                &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)      &m_selline        &kp LG(LS(S))   &bootloader       &trans
 &trans          &kp F11     &kp F12 &trans  &trans  &trans         &kp LG(LEFT)    &kp LG(DOWN)      &kp LG(UP)      &kp LG(RIGHT)     &kp BSLH   &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
             >;
