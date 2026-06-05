@@ -11,9 +11,7 @@
  *  Han/Eng  : hold left Shift + Space
  *
  *  Mac mode : toggle by pressing BOTH pinky keys together
- *  Slash    : tap=/ double-tap=\
- *  Fn extras: [ ] = Del on top-right row (Y U I P)
- *  Han/Eng  : Mac mode Space+Bspc -> Shift+Space (IME toggle)
+ *  Win Snap : Fn layer N M , .  ->  Win+ARROW  /  Mac: Cmd+Opt+ARROW
  */
 
 #include <behaviors.dtsi>
@@ -96,14 +94,6 @@
             bindings = <&sk LALT>;
         };
 
-        /* Space + Bspc  -- Shift+Space (Mac IME / 한영 toggle) */
-        combo_hanyeong {
-            timeout-ms = <50>;
-            key-positions = <33 35>;
-            layers = <MAC MACFN>;
-            bindings = <&kp LS(SPACE)>;
-        };
-
         /* both pinky keys  -- Mac mode toggle */
         combo_macmode {
             timeout-ms = <50>;
@@ -147,7 +137,7 @@
         Fn {
             display-name = "WFNC";
             bindings = <
-                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &kp LBKT        &kp RBKT          &kp EQUAL       &trans            &kp DEL
+                &kp F1      &kp F2  &kp F3  &kp F4  &kp F5         &trans          &trans            &trans          &trans            &trans
                 &kp F6      &kp F7  &kp F8  &kp F9  &kp F10        &kp LA(F4)      &m_selline        &kp LG(LS(S))   &bootloader       &trans
 &trans          &kp F11     &kp F12 &trans  &trans  &trans         &kp LG(LEFT)    &kp LG(DOWN)      &kp LG(UP)      &kp LG(RIGHT)     &trans     &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
