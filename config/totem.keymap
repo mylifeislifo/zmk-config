@@ -34,10 +34,16 @@
 
 / {
     macros {
-        m_selline: m_selline {          /* select current line */
+        m_selline: m_selline {          /* select current line (Win) */
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&kp HOME &kp LS(END)>;
+        };
+
+        m_selline_mac: m_selline_mac {  /* select current line (Mac) */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&kp LG(LEFT) &kp LS(LG(RIGHT))>;
         };
     };
 
@@ -160,7 +166,7 @@
             display-name = "MFNC";
             bindings = <
                 &trans               &trans               &trans              &trans  &trans         &trans  &trans  &trans        &trans    &trans
-                &kp LG(LA(LEFT))     &kp LG(LA(DOWN))     &kp LG(LA(UP))      &kp LG(LA(RIGHT))  &trans    &trans  &trans  &trans        &trans    &trans
+                &kp LG(LA(LEFT))     &kp LG(LA(DOWN))     &kp LG(LA(UP))      &kp LG(LA(RIGHT))  &trans    &trans  &m_selline_mac  &trans        &trans    &trans
 &trans          &trans               &trans               &trans              &trans  &trans         &trans  &trans  &kp LBKT      &kp RBKT  &trans &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
             >;
