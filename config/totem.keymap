@@ -6,7 +6,8 @@
  *  Thumbs   : Esc(hold Fn)  Space  Ctrl  |  Bksp  Enter  Tab(hold Num)
  *  GUI      : J + K combo (sticky)   -- becomes CTRL in Mac mode
  *  ALT      : D + F combo (sticky)   -- works in both Win & Mac (Option)
- *  Shift    : both pinky keys (tap Shift / double-tap Caps or ')
+ *  Shift    : left pinky (tap = sticky Shift / double-tap = Caps)  right pinky (tap Shift / double-tap ')
+ *  Hold     : U=[  I=]  O=|  ;='
  *  Backslash: Fn + /
  *  Han/Eng  : hold left Shift + Space
  *
@@ -52,7 +53,7 @@
             compatible = "zmk,behavior-tap-dance";
             #binding-cells = <0>;
             tapping-term-ms = <150>;
-            bindings = <&kp LSHFT>, <&kp CAPS>;
+            bindings = <&sk LSHFT>, <&kp CAPS>;
         };
 
         td_rshft: td_rshft {
@@ -60,6 +61,14 @@
             #binding-cells = <0>;
             tapping-term-ms = <150>;
             bindings = <&kp RSHFT>, <&kp SQT>;
+        };
+
+        sym: sym_hold_tap {
+            compatible = "zmk,behavior-hold-tap";
+            #binding-cells = <2>;
+            tapping-term-ms = <200>;
+            flavor = "tap-preferred";
+            bindings = <&kp>, <&kp>;
         };
 
     };
@@ -125,8 +134,8 @@
         Base {
             display-name = "WBAS";
             bindings = <
-                &kp Q       &kp W   &kp E   &kp R   &kp T          &kp Y      &kp U      &kp I       &kp O     &kp P
-                &kp A       &kp S   &kp D   &kp F   &kp G          &kp H      &kp J      &kp K       &kp L     &kp SEMI
+                &kp Q       &kp W   &kp E   &kp R   &kp T          &kp Y      &sym LBKT U  &sym RBKT I  &sym PIPE O  &kp P
+                &kp A       &kp S   &kp D   &kp F   &kp G          &kp H      &kp J      &kp K       &kp L     &sym SQT SEMI
 &td_shft        &kp Z       &kp X   &kp C   &kp V   &kp B          &kp N      &kp M      &kp COMMA   &kp DOT   &kp FSLH   &td_rshft
                                     &lt FN ESC  &kp SPACE  &kp LCTRL    &kp BSPC   &kp RET    &lt NUM TAB
             >;
