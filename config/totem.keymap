@@ -175,7 +175,7 @@
             display-name = "MFNC";
             bindings = <
                 &trans               &trans               &trans              &trans  &trans         &trans  &trans  &trans        &trans    &trans
-                &kp LG(LA(LEFT))     &kp LG(LA(DOWN))     &kp LG(LA(UP))      &kp LG(LA(RIGHT))  &trans    &trans  &m_selline_mac  &trans        &trans    &trans
+                &kp LG(LA(LEFT))     &kp LG(LA(DOWN))     &kp LG(LA(UP))      &kp LG(LA(RIGHT))  &trans    &none   &m_selline_mac  &none         &trans    &trans
 &trans          &trans               &trans               &trans              &trans  &trans         &trans  &trans  &kp LBKT      &kp RBKT  &trans &trans
                                     &trans      &trans     &trans       &trans     &trans     &trans
             >;
