@@ -103,12 +103,20 @@
             bindings = <&sk LALT>;
         };
 
-        /* LShift + Space  -- Han/Eng toggle (LANG1: native on macOS & Windows) */
-        combo_hanyeong {
+        /* LShift + Space  -- Han/Eng on Mac (right Cmd; passes through DeskHop, unlike LANG1) */
+        combo_haneng_mac {
             timeout-ms = <50>;
             key-positions = <20 33>;
-            layers = <BASE NUM FN MAC MACFN>;
-            bindings = <&kp LANG1>;
+            layers = <MAC MACFN>;
+            bindings = <&kp RGUI>;
+        };
+
+        /* LShift + Space  -- Han/Eng on Windows (right Alt; passes through DeskHop, unlike LANG1) */
+        combo_haneng_win {
+            timeout-ms = <50>;
+            key-positions = <20 33>;
+            layers = <BASE NUM FN>;
+            bindings = <&kp RALT>;
         };
 
         /* both pinky keys  -- Mac mode toggle */
