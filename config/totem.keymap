@@ -103,12 +103,12 @@
             bindings = <&sk LALT>;
         };
 
-        /* LShift + Space  -- CapsLock (Mac 한영 toggle) */
+        /* LShift + Space  -- Han/Eng toggle (LANG1: native on macOS & Windows) */
         combo_hanyeong {
             timeout-ms = <50>;
             key-positions = <20 33>;
-            layers = <MAC MACFN>;
-            bindings = <&kp CAPS>;
+            layers = <BASE NUM FN MAC MACFN>;
+            bindings = <&kp LANG1>;
         };
 
         /* both pinky keys  -- Mac mode toggle */
