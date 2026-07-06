@@ -47,17 +47,11 @@
             bindings = <&kp LG(LEFT) &kp LS(LG(RIGHT))>;
         };
 
-        /* Han/Eng macros: drop Shift first, then send the toggle.
-         * The Shift+Space combo otherwise leaks Shift, turning Ctrl+Space into
-         * Ctrl+Shift+Space (which the macOS input-switch hotkey ignores). */
-        m_haneng_mac: m_haneng_mac {    /* Mac: clean Ctrl+Space */
-            compatible = "zmk,behavior-macro";
-            #binding-cells = <0>;
-            bindings = <&macro_release &kp LSHFT &kp RSHFT>
-                     , <&macro_tap &kp LC(SPACE)>;
-        };
-
-        m_haneng_win: m_haneng_win {    /* Windows: clean right-Alt */
+        /* Han/Eng: drop Shift first, then tap right Option/Alt (HID 0xE6).
+         * On macOS this is Gureum's Han/Eng key (RightToggleKey=230); on
+         * Windows it is the Han/Eng key. Releasing Shift keeps it a clean
+         * RALT so the combo's Shift doesn't stick to it. Passes DeskHop. */
+        m_haneng: m_haneng {
             compatible = "zmk,behavior-macro";
             #binding-cells = <0>;
             bindings = <&macro_release &kp LSHFT &kp RSHFT>
@@ -120,21 +114,20 @@
             bindings = <&sk LALT>;
         };
 
-        /* LShift + Space  -- Han/Eng on Mac (Ctrl+Space = "select previous input source";
-         * symmetric toggle between ABC and Korean, passes through DeskHop, unlike LANG1) */
-        combo_haneng_mac {
+        /* Shift + Space  -- Han/Eng (right Option/Alt) on every layer & both OSes.
+         * Left Shift (pos 20) or right Shift (pos 31) + Space (pos 33). */
+        combo_haneng_l {
             timeout-ms = <50>;
             key-positions = <20 33>;
-            layers = <MAC MACFN>;
-            bindings = <&m_haneng_mac>;
+            layers = <BASE NUM FN MAC MACFN>;
+            bindings = <&m_haneng>;
         };
 
-        /* LShift + Space  -- Han/Eng on Windows (right Alt; passes through DeskHop, unlike LANG1) */
-        combo_haneng_win {
+        combo_haneng_r {
             timeout-ms = <50>;
-            key-positions = <20 33>;
-            layers = <BASE NUM FN>;
-            bindings = <&m_haneng_win>;
+            key-positions = <31 33>;
+            layers = <BASE NUM FN MAC MACFN>;
+            bindings = <&m_haneng>;
         };
 
         /* both pinky keys  -- Mac mode toggle */
