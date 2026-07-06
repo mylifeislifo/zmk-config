@@ -46,6 +46,23 @@
             #binding-cells = <0>;
             bindings = <&kp LG(LEFT) &kp LS(LG(RIGHT))>;
         };
+
+        /* Han/Eng macros: drop Shift first, then send the toggle.
+         * The Shift+Space combo otherwise leaks Shift, turning Ctrl+Space into
+         * Ctrl+Shift+Space (which the macOS input-switch hotkey ignores). */
+        m_haneng_mac: m_haneng_mac {    /* Mac: clean Ctrl+Space */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHFT &kp RSHFT>
+                     , <&macro_tap &kp LC(SPACE)>;
+        };
+
+        m_haneng_win: m_haneng_win {    /* Windows: clean right-Alt */
+            compatible = "zmk,behavior-macro";
+            #binding-cells = <0>;
+            bindings = <&macro_release &kp LSHFT &kp RSHFT>
+                     , <&macro_tap &kp RALT>;
+        };
     };
 
     behaviors {
@@ -109,7 +126,7 @@
             timeout-ms = <50>;
             key-positions = <20 33>;
             layers = <MAC MACFN>;
-            bindings = <&kp LC(SPACE)>;
+            bindings = <&m_haneng_mac>;
         };
 
         /* LShift + Space  -- Han/Eng on Windows (right Alt; passes through DeskHop, unlike LANG1) */
@@ -117,7 +134,7 @@
             timeout-ms = <50>;
             key-positions = <20 33>;
             layers = <BASE NUM FN>;
-            bindings = <&kp RALT>;
+            bindings = <&m_haneng_win>;
         };
 
         /* both pinky keys  -- Mac mode toggle */
